@@ -1,0 +1,28 @@
+@import "primeicons/primeicons.css";
+
+@import "tailwindcss";
+
+@theme {
+  --font-baloo: var(--font-baloo);
+  --font-titan: var(--font-titan);
+  --font-aldrich: var(--font-aldrich);
+  --color-body: #fdf4f5;
+  --color-primary: #4299e1;
+  --color-secondary: #ff6347;
+  --color-secondaryH: #ff5865;
+  --color-third: #bc94c8;
+}
+
+@layer base {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+body {
+  background: #ddd;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
