@@ -5,6 +5,7 @@ import InputTextArea from "@/Components/InputTextArea"
 import { useState } from "react"
 import { addHours, addYears } from "date-fns"
 import { useRouter } from "next/navigation"
+import { upsertSetting } from "@/libs/SettingService"
 
 const Page = () => {
   const [nama_sekolah, setNamaSekolah] = useState()
@@ -26,33 +27,25 @@ const Page = () => {
     const aktif_pengumuman = 0
     const waktu_pengumuman = date
 
-    const req = await fetch(
-      `${process.env.NEXT_PUBLIC_VERCEL_URL}/api/db/settings`,
-      {
-        method: "POST",
-        headers: {
-          accept: "application/json",
-          "Content-Type": "application.json",
-        },
-        body: JSON.stringify({
-          nama_sekolah,
-          npsn,
-          email_sekolah,
-          nama_kepsek,
-          nip_kepsek,
-          alamat_sekolah,
-          logo_sekolah,
-          semester,
-          izin_login,
-          aktif_pengumuman,
-          waktu_pengumuman,
-        }),
-      }
-    )
+    let data = {
+      nama_sekolah: nama_sekolah,
+      npsn: npsn,
+      email_sekolah: email_sekolah,
+      nama_kepsek: nama_kepsek,
+      nip_kepsek: nip_kepsek,
+      logo_sekolah: logo_sekolah,
+      semester: semester,
+      izin_login: izin_login,
+      aktif_pengumuman: aktif_pengumuman,
+      waktu_pengumuman: waktu_pengumuman,
+      alamat_sekolah: alamat_sekolah,
+    }
 
-    const res = await req.json()
-    if (res.status == 200) router.push("/")
-    else console.log("Something went wrong")
+    const req = await upsertSetting(data)
+    if (req.status === "ok") router.push("/")
+    else {
+      console.log("error")
+    }
   }
 
   return (
@@ -62,7 +55,7 @@ const Page = () => {
           Inisialisasi Data Sekolah
         </h1>
         <form className="flex flex-col gap-2" onSubmit={handleSubmit}>
-          <div className="flex justify-between flex-nowrap flex-col md:flex-row md:flex-wrap font-baloo gap-3">
+          <div className="flex text-white justify-between flex-nowrap flex-col md:flex-row md:flex-wrap font-baloo gap-3">
             <InputText
               type={"text"}
               id={"nama_sekolah"}

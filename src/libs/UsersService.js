@@ -8,6 +8,20 @@ const getUser = async () => {
   return user
 }
 
+const createUser = async (request) => {
+  let data = request
+  data.password = await bcrypt.hash(data.password, 10)
+
+  const user = await prisma.users.create({
+    data: data,
+  })
+  if (user) {
+    return { status: "ok", message: "success" }
+  } else {
+    return { status: "error", message: "Something when wrong!" }
+  }
+}
+
 const getUserAuth = async (request) => {
   const { username, password, role } = request
   let req
@@ -45,4 +59,4 @@ const getUserAuth = async (request) => {
   else return user
 }
 
-export { getUser, getUserAuth }
+export { getUser, getUserAuth, createUser }

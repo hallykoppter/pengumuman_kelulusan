@@ -126,10 +126,19 @@ const Page = (props) => {
             color={"bg-red-500"}
           />
         </div>
-        <div className="flex">
-          <div className="flex flex-col gap-4">
+        <div className="flex gap-5">
+          <div className="flex flex-2/3 flex-col gap-4">
             <TableDashboard {...data} toast={toast} />
             <PaginationTable {...data?.metadata} page={pageNumber} />
+          </div>
+          <div className="flex flex-1/3 flex-col text-white">
+            <div className="flex flex-col gap-3 bg-red-800 p-3">
+              <h1 className="text-white text-xl">Informasi Tambahan</h1>
+              <p className="text-sm">
+                Untuk mengedit data silakan lakukan pada file excel, kemudian
+                import kembali di menu import PD.
+              </p>
+            </div>
           </div>
         </div>
       </div>

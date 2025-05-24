@@ -159,32 +159,9 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
-exports.Prisma.UsersOrderByRelevanceFieldEnum = {
-  name: 'name',
-  username: 'username',
-  password: 'password'
-};
-
-exports.Prisma.SettingsOrderByRelevanceFieldEnum = {
-  npsn: 'npsn',
-  nama_sekolah: 'nama_sekolah',
-  email_sekolah: 'email_sekolah',
-  alamat_sekolah: 'alamat_sekolah',
-  semester: 'semester',
-  nama_kepsek: 'nama_kepsek',
-  nip_kepsek: 'nip_kepsek',
-  logo_sekolah: 'logo_sekolah',
-  waktu_pengumuman: 'waktu_pengumuman'
-};
-
-exports.Prisma.SiswaOrderByRelevanceFieldEnum = {
-  nama: 'nama',
-  nis: 'nis',
-  nisn: 'nisn',
-  kelas: 'kelas',
-  password: 'password',
-  tempat_lahir: 'tempat_lahir',
-  tanggal_lahir: 'tanggal_lahir'
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
 };
 
 

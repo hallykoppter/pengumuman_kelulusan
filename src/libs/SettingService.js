@@ -12,6 +12,24 @@ const getSetting = async () => {
   return req
 }
 
+const upsertSetting = async (data) => {
+  let body = data
+  body.izin_login = Number(body.izin_login)
+  body.aktif_pengumuman = Number(body.aktif_pengumuman)
+  const req = await prisma.settings.upsert({
+    where: {
+      id: 1,
+    },
+    update: body,
+    create: body,
+  })
+  if (req) {
+    return { status: "ok", message: "success" }
+  } else {
+    return { status: "error", message: "Something when wrong!" }
+  }
+}
+
 const updateSetting = async (data) => {
   let body = data
   body.izin_login = Number(body.izin_login)
@@ -31,4 +49,4 @@ const updateSetting = async (data) => {
 
 const uploadLogo = async () => {}
 
-export { getSetting, updateSetting, uploadLogo }
+export { getSetting, upsertSetting, uploadLogo, updateSetting }

@@ -48,11 +48,6 @@ const TableDashboard = (props) => {
             >
               Ubah keterangan
             </button>
-            <Link href={`/dashboard/peserta_didik/${siswa.id}`}>
-              <div className="p-1 px-2 bg-blue-500 text-white rounded-sm scale-75 cursor-pointer">
-                Edit Password
-              </div>
-            </Link>
           </TableCell>
         </TableRow>
       )

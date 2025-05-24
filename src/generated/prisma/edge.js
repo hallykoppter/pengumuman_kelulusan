@@ -131,32 +131,9 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
-exports.Prisma.UsersOrderByRelevanceFieldEnum = {
-  name: 'name',
-  username: 'username',
-  password: 'password'
-};
-
-exports.Prisma.SettingsOrderByRelevanceFieldEnum = {
-  npsn: 'npsn',
-  nama_sekolah: 'nama_sekolah',
-  email_sekolah: 'email_sekolah',
-  alamat_sekolah: 'alamat_sekolah',
-  semester: 'semester',
-  nama_kepsek: 'nama_kepsek',
-  nip_kepsek: 'nip_kepsek',
-  logo_sekolah: 'logo_sekolah',
-  waktu_pengumuman: 'waktu_pengumuman'
-};
-
-exports.Prisma.SiswaOrderByRelevanceFieldEnum = {
-  nama: 'nama',
-  nis: 'nis',
-  nisn: 'nisn',
-  kelas: 'kelas',
-  password: 'password',
-  tempat_lahir: 'tempat_lahir',
-  tanggal_lahir: 'tanggal_lahir'
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
 };
 
 
@@ -203,8 +180,7 @@ const config = {
   "datasourceNames": [
     "db"
   ],
-  "activeProvider": "mysql",
-  "postinstall": false,
+  "activeProvider": "postgresql",
   "inlineDatasources": {
     "db": {
       "url": {
@@ -213,8 +189,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"mysql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Users {\n  id       Int    @id @default(autoincrement())\n  name     String\n  username String @unique\n  password String\n}\n\nmodel Settings {\n  id               Int    @id @default(autoincrement())\n  npsn             String\n  nama_sekolah     String\n  email_sekolah    String\n  alamat_sekolah   String\n  semester         String\n  nama_kepsek      String\n  nip_kepsek       String\n  logo_sekolah     String\n  aktif_pengumuman Int\n  waktu_pengumuman String\n  izin_login       Int\n}\n\nmodel Siswa {\n  id            Int    @id @default(autoincrement())\n  nama          String\n  nis           String\n  nisn          String @unique\n  kelas         String\n  password      String\n  tempat_lahir  String\n  tanggal_lahir String\n  keterangan    Int\n}\n",
-  "inlineSchemaHash": "d95f9ac61a5909a74ad12cc774d4ed9721a4c0055e86b9ce5f8921573bab6be4",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../src/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Users {\n  id       Int    @id @default(autoincrement())\n  name     String\n  username String @unique\n  password String\n}\n\nmodel Settings {\n  id               Int    @id @default(autoincrement())\n  npsn             String\n  nama_sekolah     String\n  email_sekolah    String\n  alamat_sekolah   String\n  semester         String\n  nama_kepsek      String\n  nip_kepsek       String\n  logo_sekolah     String\n  aktif_pengumuman Int\n  waktu_pengumuman String\n  izin_login       Int\n}\n\nmodel Siswa {\n  id            Int    @id @default(autoincrement())\n  nama          String\n  nis           String\n  nisn          String @unique\n  kelas         String\n  password      String\n  tempat_lahir  String\n  tanggal_lahir String\n  keterangan    Int\n}\n",
+  "inlineSchemaHash": "ced7724ea89f84bef017bc053e876c9565b098124c082629749c09f2635e6edc",
   "copyEngine": true
 }
 config.dirname = '/'
