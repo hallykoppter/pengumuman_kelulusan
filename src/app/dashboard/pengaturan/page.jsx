@@ -142,7 +142,7 @@ const Page = () => {
               type="submit"
               className="flex bg-green-700 p-2 px-4 text-white rounded-sm cursor-pointer"
             >
-              Submit
+              Simpan
             </button>
           </div>
         </form>

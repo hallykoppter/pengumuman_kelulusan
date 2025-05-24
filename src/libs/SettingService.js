@@ -47,6 +47,4 @@ const updateSetting = async (data) => {
   }
 }
 
-const uploadLogo = async () => {}
-
-export { getSetting, upsertSetting, uploadLogo, updateSetting }
+export { getSetting, upsertSetting, updateSetting }
