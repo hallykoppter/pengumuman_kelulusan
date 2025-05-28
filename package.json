@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "npx prisma generate && npx prisma migrate"
   },
   "dependencies": {
     "@bprogress/core": "^1.3.4",
