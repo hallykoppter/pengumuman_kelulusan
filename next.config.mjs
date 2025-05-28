@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 
-import { PrismaPlugin } from "@prisma/nextjs-monorepo-workaround-plugin/index"
+import { PrismaPlugin } from "@prisma/nextjs-monorepo-workaround-plugin/index.js"
 
 const nextConfig = {
   allowedDevOrigins: ["skl.smpn3rancah.my.id"],
