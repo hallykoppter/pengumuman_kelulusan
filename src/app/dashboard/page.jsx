@@ -1,8 +1,8 @@
 "use client"
 
-import Countdowncustom from "@/Components/Countdowncustom"
-import ContentPage from "@/Components/Dashboard/ContentPage"
-import TitlePage from "@/Components/Dashboard/TitlePage"
+import Countdowncustom from "@/components/Countdowncustom"
+import ContentPage from "@/components/Dashboard/ContentPage"
+import TitlePage from "@/components/Dashboard/TitlePage"
 import { useState } from "react"
 
 const Page = () => {

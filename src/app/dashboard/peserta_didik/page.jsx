@@ -1,10 +1,10 @@
 "use client"
 
-import ButtonDash from "@/Components/Dashboard/ButtonDash"
-import ContentPage from "@/Components/Dashboard/ContentPage"
-import PaginationTable from "@/Components/Dashboard/PagintaionTable"
-import TableDashboard from "@/Components/Dashboard/TableDashboard"
-import TitlePage from "@/Components/Dashboard/TitlePage"
+import ButtonDash from "@/components/Dashboard/ButtonDash"
+import ContentPage from "@/components/Dashboard/ContentPage"
+import PaginationTable from "@/components/Dashboard/PagintaionTable"
+import TableDashboard from "@/components/Dashboard/TableDashboard"
+import TitlePage from "@/components/Dashboard/TitlePage"
 import {
   batalkanKelulusan,
   getSiswaPage,

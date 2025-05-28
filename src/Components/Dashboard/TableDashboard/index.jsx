@@ -5,9 +5,8 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/Components/ui/table"
+} from "@/components/ui/table"
 import { updateKeterangan } from "@/libs/SiswaService"
-import Link from "next/link"
 
 const TableDashboard = (props) => {
   const { data, toast } = props

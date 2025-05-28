@@ -1,8 +1,8 @@
 "use client"
 
-import ContentPage from "@/Components/Dashboard/ContentPage"
-import ITextarea from "@/Components/Dashboard/ITextarea"
-import TitlePage from "@/Components/Dashboard/TitlePage"
+import ContentPage from "@/components/Dashboard/ContentPage"
+import ITextarea from "@/components/Dashboard/ITextarea"
+import TitlePage from "@/components/Dashboard/TitlePage"
 import { getPengumuman, upsertPengumuman } from "@/libs/PengumumanService"
 import { Toast } from "primereact/toast"
 import { useEffect, useRef, useState } from "react"

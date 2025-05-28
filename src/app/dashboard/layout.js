@@ -1,7 +1,7 @@
-import Sidebar from "@/Components/Dashboard/Sidebar"
+import Sidebar from "@/components/Dashboard/Sidebar"
 import "./style.css"
 import { Aldrich, Baloo_Bhai_2, Titan_One } from "next/font/google"
-import Navbar from "@/Components/Dashboard/Navbar"
+import Navbar from "@/components/Dashboard/Navbar"
 import ClientProvider from "@/libs/ClientProvider"
 
 const balooBhai = Baloo_Bhai_2({

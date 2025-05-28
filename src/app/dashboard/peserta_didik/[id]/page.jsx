@@ -1,5 +1,5 @@
-import ContentPage from "@/Components/Dashboard/ContentPage"
-import TitlePage from "@/Components/Dashboard/TitlePage"
+import ContentPage from "@/components/Dashboard/ContentPage"
+import TitlePage from "@/components/Dashboard/TitlePage"
 
 const Page = () => {
   return (

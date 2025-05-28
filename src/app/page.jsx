@@ -1,9 +1,8 @@
 "use client"
 
-import Countdowncustom from "@/Components/Countdowncustom"
-import FormOrDashboard from "@/Components/FormOrDashboard"
+import Countdowncustom from "@/components/Countdowncustom"
+import FormOrDashboard from "@/components/FormOrDashboard"
 import { getSetting } from "@/libs/SettingService"
-import { getUserAuth } from "@/libs/UsersService"
 import { useSession } from "next-auth/react"
 import Image from "next/image"
 import { useEffect, useState } from "react"

@@ -1,7 +1,7 @@
 "use client"
 
 import InputText from "@/components/InputText"
-import InputTextArea from "@/Components/InputTextArea"
+import InputTextArea from "@/components/InputTextArea"
 import { useState } from "react"
 import { addHours, addYears } from "date-fns"
 import { useRouter } from "next/navigation"

@@ -1,14 +1,13 @@
 "use client"
 
-import ContentPage from "@/Components/Dashboard/ContentPage"
-import TitlePage from "@/Components/Dashboard/TitlePage"
+import ContentPage from "@/components/Dashboard/ContentPage"
+import TitlePage from "@/components/Dashboard/TitlePage"
 import bcrypt from "bcryptjs"
 import { importSiswa } from "@/libs/SiswaService"
 import { saveAs } from "file-saver"
 import { useRef, useState } from "react"
 import * as XLSX from "xlsx"
 import { Toast } from "primereact/toast"
-import { Bar, Progress } from "@bprogress/next"
 import { useProgress } from "@bprogress/next"
 
 const Page = () => {
