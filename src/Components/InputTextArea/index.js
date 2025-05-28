@@ -10,6 +10,7 @@ const InputTextArea = ({ label, id, onchange, defvalue, grow }) => {
         placeholder=" "
         defaultValue={defvalue}
         onChange={onchange}
+        required
       />
       <label
         htmlFor={id}

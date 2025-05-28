@@ -154,6 +154,11 @@ exports.Prisma.SiswaScalarFieldEnum = {
   keterangan: 'keterangan'
 };
 
+exports.Prisma.PengumumanScalarFieldEnum = {
+  id: 'id',
+  pengumuman: 'pengumuman'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -168,7 +173,8 @@ exports.Prisma.QueryMode = {
 exports.Prisma.ModelName = {
   Users: 'Users',
   Settings: 'Settings',
-  Siswa: 'Siswa'
+  Siswa: 'Siswa',
+  Pengumuman: 'Pengumuman'
 };
 
 /**

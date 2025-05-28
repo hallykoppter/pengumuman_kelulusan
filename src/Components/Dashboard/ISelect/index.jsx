@@ -40,6 +40,7 @@ const ISelect = ({ option, label, id, defvalue }) => {
         onChange={(e) => setValue(e.target.value)}
         value={value}
         className="border-1 w-80 p-1 px-3 rounded-sm bg-transparent"
+        required
       >
         {opsi}
       </select>

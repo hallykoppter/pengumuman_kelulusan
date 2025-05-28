@@ -26,7 +26,7 @@ const upsertSetting = async (data) => {
   if (req) {
     return { status: "ok", message: "success" }
   } else {
-    return { status: "error", message: "Something when wrong!" }
+    return { status: "error", message: "Something went wrong!" }
   }
 }
 
@@ -43,8 +43,23 @@ const updateSetting = async (data) => {
   if (req) {
     return { status: "ok", message: "success" }
   } else {
-    return { status: "error", message: "Something when wrong!" }
+    return { status: "error", message: "Something went wrong!" }
   }
 }
 
-export { getSetting, upsertSetting, updateSetting }
+const updateLogo = async (request) => {
+  const req = await prisma.settings.update({
+    where: {
+      id: 1,
+    },
+    data: request,
+  })
+
+  if (req) {
+    return { status: "ok", message: "success" }
+  } else {
+    return { status: "error", message: "Something went wrong!" }
+  }
+}
+
+export { getSetting, upsertSetting, updateSetting, updateLogo }

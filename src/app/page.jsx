@@ -1,19 +1,19 @@
 "use client"
 
 import Countdowncustom from "@/Components/Countdowncustom"
-import InputText from "@/components/InputText"
+import FormOrDashboard from "@/Components/FormOrDashboard"
 import { getSetting } from "@/libs/SettingService"
-import { signIn, useSession } from "next-auth/react"
+import { getUserAuth } from "@/libs/UsersService"
+import { useSession } from "next-auth/react"
+import Image from "next/image"
 import { useEffect, useState } from "react"
 
 const Page = () => {
   const [setting, setSetting] = useState()
-  const [username, setUsername] = useState()
-  const [password, setPassword] = useState()
+
   const [hidden, setHidden] = useState(" ")
   const [done, setDone] = useState("hidden")
   const { data: session } = useSession()
-  let UserAktif
 
   useEffect(() => {
     async function fetch() {
@@ -22,17 +22,6 @@ const Page = () => {
     }
     fetch()
   }, [])
-
-  const handleLogin = (e) => {
-    e.preventDefault()
-    signIn("credentials", {
-      username: username,
-      password: password,
-      role: "siswa",
-      redirect: true,
-      callbackUrl: "/pengumuman",
-    })
-  }
 
   const handleComplete = () => {
     setDone()
@@ -48,52 +37,16 @@ const Page = () => {
     )
   }
 
-  if (session?.user.role == "admin") {
-    UserAktif = (
-      <a
-        href="/dashboard"
-        className="flex p-2 px-4 rounded-md bg-primary font-baloo text-xl"
-      >
-        Dashboard
-      </a>
-    )
-  } else if (session?.user.role == "siswa") {
-    UserAktif = (
-      <a
-        href="/pd/pengumuman"
-        className="flex p-2 px-4 rounded-md bg-primary font-baloo text-xl"
-      >
-        Pengumuman
-      </a>
-    )
-  } else {
-    UserAktif = (
-      <form className="flex flex-col font-baloo gap-3" onSubmit={handleLogin}>
-        <h1 className="flex mb-2 text-center text-white justify-center items-center">
-          Login Sebagai Peserta Didik
-        </h1>
-        <input type="hidden" name="role" id="role" value="siswa" />
-        <InputText
-          type={"number"}
-          id="nisn"
-          label="NISN"
-          onchange={(e) => setUsername(e.target.value)}
-        />
-        <InputText
-          type={"password"}
-          id="password"
-          label="Password"
-          onchange={(e) => setPassword(e.target.value)}
-        />
-        <button className="bg-lime-600 rounded-md p-2 cursor-pointer">
-          Masuk
-        </button>
-      </form>
-    )
-  }
-
   return (
-    <div className="flex flex-col min-h-screen justify-center items-center gap-2">
+    <div className="flex flex-col min-h-screen overflow-x-hidden justify-center items-center gap-2">
+      {setting && (
+        <Image
+          src={setting?.logo_sekolah}
+          width={100}
+          height={100}
+          alt="Logo Sekolah"
+        />
+      )}
       <h1 className="uppercase text-white font-titan md:scale-100 scale-75 md:mb-20 mb-5 text-2xl text-center">
         Pengumuman Kelulusan <br /> {setting?.nama_sekolah}
       </h1>
@@ -110,7 +63,7 @@ const Page = () => {
           <Countdowncustom oncomplete={handleComplete} />
         </div>
         <div className="flex p-3 rounded-md ring-3 bg-blue-700 ring-red-500">
-          {UserAktif}
+          <FormOrDashboard user={session?.user} />
         </div>
       </div>
     </div>

@@ -24,6 +24,7 @@ const InputDatetime = ({ label, id, grow, defvalue }) => {
         placeholder=" "
         onChange={(e) => setDate(e.target.value)}
         defaultValue={date}
+        required
       />
       <label
         htmlFor={id}

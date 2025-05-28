@@ -10,6 +10,7 @@ const IText = ({ type, id, label, onchange, defvalue }) => {
         onChange={onchange}
         defaultValue={defvalue}
         autoComplete="off"
+        required
       />
     </div>
   )

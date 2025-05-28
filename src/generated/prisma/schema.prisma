@@ -47,3 +47,8 @@ model Siswa {
   tanggal_lahir String
   keterangan    Int
 }
+
+model Pengumuman {
+  id         Int    @id @default(autoincrement())
+  pengumuman String
+}

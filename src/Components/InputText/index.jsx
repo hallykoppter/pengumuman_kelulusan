@@ -7,11 +7,12 @@ const InputText = ({ label, type, id, onchange, grow, defvalue }) => {
         type={type}
         id={id}
         name={id}
-        className={`w-full rounded-lg font-baloo p-2 pb-1 border border-secondary focus:outline-none appearance-none peer`}
+        className={`w-full text-white rounded-lg font-baloo p-2 pb-1 border border-secondary focus:outline-none appearance-none peer`}
         placeholder=" "
         onChange={onchange}
         defaultValue={defvalue}
         autoComplete="off"
+        required
       />
       <label
         htmlFor={id}

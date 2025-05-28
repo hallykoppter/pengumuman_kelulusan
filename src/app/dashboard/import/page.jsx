@@ -29,7 +29,7 @@ const Page = () => {
     if (excelData) {
       for (let i = 0; i < excelData?.length; i++) {
         excelData[i].password = await bcrypt.hash(
-          excelData[0].password.toString(),
+          excelData[i].password.toString(),
           10
         )
         excelData[i].nis = excelData[i].nis.toString()
@@ -66,6 +66,7 @@ const Page = () => {
           const sheetName = workbook.SheetNames[0]
           const workSheet = workbook.Sheets[sheetName]
           const json = XLSX.utils.sheet_to_json(workSheet)
+          console.log(json)
           setExcelData(json)
         }
       }
@@ -100,8 +101,9 @@ const Page = () => {
           <button
             type="submit"
             onClick={handleImport}
-            className="flex p-1 px-3 cursor-pointer bg-green-500 text-white rounded-sm"
+            className="flex gap-2 justify-center items-center p-1 px-3 cursor-pointer bg-green-500 text-white rounded-sm"
           >
+            <i className="pi pi-download"></i>
             Import
           </button>
         </div>

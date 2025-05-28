@@ -5,6 +5,7 @@ import IDatetime from "@/Components/Dashboard/IDatetime"
 import ISelect from "@/Components/Dashboard/ISelect"
 import IText from "@/Components/Dashboard/IText"
 import ITextarea from "@/Components/Dashboard/ITextarea"
+import LogoUpload from "@/Components/Dashboard/LogoUpload"
 import TitlePage from "@/Components/Dashboard/TitlePage"
 import { getSetting, updateSetting } from "@/libs/SettingService"
 import { addHours } from "date-fns"
@@ -67,85 +68,89 @@ const Page = () => {
     <ContentPage>
       <Toast ref={toast} />
       <TitlePage title={"Pengaturan"} />
-      <div className="flex flex-row bg-gray-400 p-4 rounded-sm text-white">
+      <div className="flex flex-row justify-evenly gap-5 bg-gray-400 p-4 rounded-sm text-white">
         <form
           id="edit"
           name="edit"
           onSubmit={handleSubmit}
-          className="flex gap-3 relative"
+          className="flex flex-col gap-2"
         >
-          <div className="flex flex-col">
-            <IText
-              type={"number"}
-              id={"npsn"}
-              label={"NPSN"}
-              defvalue={setting?.npsn}
-            />
-            <IText
-              type={"text"}
-              id={"nama_sekolah"}
-              label={"Nama Sekolah"}
-              defvalue={setting?.nama_sekolah}
-            />
-            <IText
-              type={"email"}
-              id={"email_sekolah"}
-              label={"Email Sekolah"}
-              defvalue={setting?.email_sekolah}
-            />
-            <IText
-              type={"text"}
-              id={"nama_kepsek"}
-              label={"Nama Kepala Sekolah"}
-              defvalue={setting?.nama_kepsek}
-            />
-            <IText
-              type={"number"}
-              id={"nip_kepsek"}
-              label={"NIP Kepala Sekolah"}
-              defvalue={setting?.nip_kepsek}
-            />
+          <div className="flex gap-3">
+            <div className="flex flex-col">
+              <IText
+                type={"number"}
+                id={"npsn"}
+                label={"NPSN"}
+                defvalue={setting?.npsn}
+              />
+              <IText
+                type={"text"}
+                id={"nama_sekolah"}
+                label={"Nama Sekolah"}
+                defvalue={setting?.nama_sekolah}
+              />
+              <IText
+                type={"email"}
+                id={"email_sekolah"}
+                label={"Email Sekolah"}
+                defvalue={setting?.email_sekolah}
+              />
+              <IText
+                type={"text"}
+                id={"nama_kepsek"}
+                label={"Nama Kepala Sekolah"}
+                defvalue={setting?.nama_kepsek}
+              />
+              <IText
+                type={"number"}
+                id={"nip_kepsek"}
+                label={"NIP Kepala Sekolah"}
+                defvalue={setting?.nip_kepsek}
+              />
+            </div>
+            <div className="flex flex-col">
+              <ISelect
+                id={"semester"}
+                label={"Semester"}
+                option={option.semester}
+                defvalue={setting?.semester}
+              />
+              <ISelect
+                id={"aktif_pengumuman"}
+                label={"Izinkan Pengumuman"}
+                option={option.aktif_pengumuman}
+                defvalue={setting?.aktif_pengumuman}
+              />
+              <ISelect
+                id={"izin_login"}
+                label={"Izinkan Login"}
+                option={option.izin_login}
+                defvalue={setting?.izin_login}
+              />
+              <IDatetime
+                label={"Waktu Pengumuman"}
+                id={"waktu_pengumuman"}
+                defvalue={w}
+              />
+              <ITextarea
+                grow={"grow"}
+                label={"Alamat Sekolah"}
+                id={"alamat_sekolah"}
+                defvalue={setting?.alamat_sekolah}
+              />
+            </div>
           </div>
-          <div className="flex flex-col">
-            <ISelect
-              id={"semester"}
-              label={"Semester"}
-              option={option.semester}
-              defvalue={setting?.semester}
-            />
-            <ISelect
-              id={"aktif_pengumuman"}
-              label={"Izinkan Pengumuman"}
-              option={option.aktif_pengumuman}
-              defvalue={setting?.aktif_pengumuman}
-            />
-            <ISelect
-              id={"izin_login"}
-              label={"Izinkan Login"}
-              option={option.izin_login}
-              defvalue={setting?.izin_login}
-            />
-            <IDatetime
-              label={"Waktu Pengumuman"}
-              id={"waktu_pengumuman"}
-              defvalue={w}
-            />
-            <ITextarea
-              grow={"grow"}
-              label={"Alamat Sekolah"}
-              id={"alamat_sekolah"}
-              defvalue={setting?.alamat_sekolah}
-            />
-          </div>
-          <div className="flex flex-col justify-end">
-            <button
-              type="submit"
-              className="flex bg-green-700 p-2 px-4 text-white rounded-sm cursor-pointer"
-            >
-              Simpan
-            </button>
-          </div>
+          <button
+            type="submit"
+            className="flex justify-center gap-2 items-center bg-green-700 p-2 px-4 text-white rounded-sm cursor-pointer"
+          >
+            <i className="pi pi-save"></i>
+            Simpan
+          </button>
         </form>
+        <div className="flex flex-col">
+          <LogoUpload toast={toast} />
+        </div>
       </div>
     </ContentPage>
   )

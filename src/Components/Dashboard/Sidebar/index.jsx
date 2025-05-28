@@ -18,7 +18,7 @@ const Sidebar = () => {
   return (
     <div className="w-[16vw] bg-indigo-800 min-h-screen text-white">
       <h1 className="font-titan text-xl text-center p-2 py-3">
-        {setting?.nama_sekolah}
+        <Link href={"/"}>{setting?.nama_sekolah}</Link>
       </h1>
       <div className="flex flex-col p-6 gap-1">
         <div className="flex flex-col font-baloo mb-3">
@@ -39,6 +39,12 @@ const Sidebar = () => {
             <i className="pi pi-file-import"></i>
             <Link href={"/dashboard/import"} className="text-md">
               Import PD
+            </Link>
+          </div>
+          <div className="flex gap-2 p-2 items-center">
+            <i className="pi pi-megaphone"></i>
+            <Link href={"/dashboard/pengumuman"} className="text-md">
+              Pengumuman
             </Link>
           </div>
         </div>

@@ -44,6 +44,7 @@ const getUserAuth = async (request) => {
     password,
     req?.password.toString()
   )
+
   const setting = await prisma.settings.findUnique({ where: { id: 1 } })
   const nama_sekolah = setting?.nama_sekolah
 
@@ -55,7 +56,7 @@ const getUserAuth = async (request) => {
   }
 
   if (!verifyPassword)
-    return json({ message: "username or password didnt match" })
+    return { status: 404, message: "username or password didnt match" }
   else return user
 }
 

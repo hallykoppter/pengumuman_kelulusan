@@ -23,6 +23,7 @@ const IDatetime = ({ id, label, defvalue }) => {
         name={id}
         onChange={(e) => setDate(e.target.value)}
         defaultValue={date}
+        required
       />
     </div>
   )

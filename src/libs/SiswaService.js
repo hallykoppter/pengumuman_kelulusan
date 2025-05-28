@@ -37,7 +37,7 @@ const updateKeterangan = async (props) => {
 }
 
 const truncateSiswa = async () => {
-  const req = await prisma.$executeRaw`TRUNCATE TABLE siswa;`
+  const req = await prisma.$executeRaw`TRUNCATE "Siswa";`
   if (req === 0) {
     return { status: "ok", message: "success" }
   } else {
@@ -72,7 +72,7 @@ const importSiswa = async (excelData) => {
   const count = await prisma.siswa.count()
 
   if (count >= 1) {
-    await prisma.$executeRaw`TRUNCATE TABLE siswa;`
+    await prisma.$executeRaw`TRUNCATE "Siswa";`
   }
   const req = await prisma.siswa.createMany({
     data: data,

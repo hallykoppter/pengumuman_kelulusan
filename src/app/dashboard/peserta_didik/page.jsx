@@ -22,7 +22,6 @@ const PAGE_SIZE = 8
 const Page = (props) => {
   const router = useRouter()
   const toast = useRef(null)
-  const toastConf = useRef(null)
   const [data, setData] = useState()
   const [visible, setVisible] = useState(false)
   const searchParams = useSearchParams()
@@ -111,16 +110,19 @@ const Page = (props) => {
       <div className="flex flex-col gap-2">
         <div className="flex gap-3">
           <ButtonDash
+            icon={"pi pi-check-circle"}
             label={"Luluskan Semua"}
             onclick={handleLuluskanSemua}
             color={"bg-green-500"}
           />
           <ButtonDash
+            icon={"pi pi-times-circle"}
             label={"Batalkan Kelulusan"}
             onclick={handleBatalkanKelulusan}
             color={"bg-red-500"}
           />
           <ButtonDash
+            icon={"pi pi-ban"}
             label={"Hapus Semua"}
             onclick={() => setVisible(true)}
             color={"bg-red-500"}

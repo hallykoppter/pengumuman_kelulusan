@@ -35,6 +35,7 @@ const InputSelect = ({ label, id, grow, option, defvalue, onchange }) => {
         placeholder=" "
         value={value}
         onChange={(e) => setValue(e.target.value)}
+        required
       >
         {opsi}
       </select>

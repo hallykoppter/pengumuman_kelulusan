@@ -18,15 +18,15 @@ export const authOptions = {
           password: credentials?.password,
           role: credentials?.role,
         })
-
-        if (!user) return null
-        else return user
+        if (user.status == 404) {
+          return null
+        } else return user
       },
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
-    signIn: "/login",
+    signIn: ["/login", "/"],
   },
   callbacks: {
     async jwt({ token, user, account }) {
